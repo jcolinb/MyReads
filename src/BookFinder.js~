@@ -1,0 +1,9 @@
+import React,{Component} from 'react'
+
+class BookFinder extends Component {
+    render() {
+	<input type="text" placeholder="Search for books in library"/>
+    }
+}
+
+export default BookFinder
