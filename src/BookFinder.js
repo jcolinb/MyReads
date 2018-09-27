@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import * as BooksAPI from './BooksAPI'
+import SearchBar from './SearchBar'
 
 class BookFinder extends Component {
 
@@ -8,7 +9,7 @@ class BookFinder extends Component {
 	searchResults: []
     }
 
-    updateTerm(term) {
+    updateTerm = (term) => {
 	(term &&
 	BooksAPI.search(term).then((data) => this.setState({searchTerm: (term),searchResults: ((data && !(data.error)) ? data : [])}))
 	) ||
@@ -17,14 +18,10 @@ class BookFinder extends Component {
 
     render() {
 	return (
-	    	<div>
-		  <input
-	            type="text"
-	            value={this.state.searchTerm}
-	            onChange={(e) =>
-		      this.updateTerm(e.target.value)
-		    }
-		  />
+	        <div>
+		<SearchBar term={this.state.searchTerm}
+	                   updateTerm={this.updateTerm}
+		/>
 		<ol className="books-grid">
 
 	        {this.state.searchResults.map(function(book) {
