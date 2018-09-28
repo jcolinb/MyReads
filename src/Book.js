@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-
+import Librarian from './Librarian'
 class Book extends Component {
     render() {
 	return (
@@ -11,15 +11,7 @@ class Book extends Component {
 		                    height: 193,
 				    backgroundImage: `url(${this.props.cover})`}}>
 		      </div>
-                      <div className="book-shelf-changer">
-                        <select>
-                          <option value="move" disabled>Move to...</option>
-                          <option value="currentlyReading">Currently Reading</option>
-                          <option value="wantToRead">Want to Read</option>
-                          <option value="read">Read</option>
-                          <option value="none">None</option>
-                        </select>
-                      </div>
+		      <Librarian/>
                     </div>
                     <div className="book-title">{this.props.title}</div>
                     <div className="book-authors">{this.props.author}</div>
