@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import * as BooksAPI from './BooksAPI'
 import SearchBar from './SearchBar'
+import Book from './Book'
 
 class BookFinder extends Component {
 
@@ -27,11 +28,12 @@ class BookFinder extends Component {
 	        {this.state.searchResults.map(function(book) {
 		  { if (book.imageLinks) {
 		     return (
-		       <li key={book.id}>
-		         <div className="book-cover"
-		              style={{width: 128,height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})`}}
-			 ></div>
-		       </li>
+			     <Book
+			 key={book.id}
+			 cover={book.imageLinks.thumbnail}
+			 title={book.title}
+			 author={book.authors}
+			     />
 		    )
 		   }
 		  }
@@ -44,3 +46,4 @@ class BookFinder extends Component {
 }
 
 export default BookFinder
+		       
