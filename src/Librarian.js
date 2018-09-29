@@ -2,18 +2,22 @@ import React,{Component} from 'react'
 import * as BooksAPI from './BooksAPI'
 class Librarian extends Component {
 
-    getShelf(bookId) {
-
+    getShelf(bookId,target) {
+	BooksAPI.get(bookId).then((book) => (book.shelf) && (target.value = book.shelf))
     }
 
-    setShelf(bookId) {
-
+    setShelf(bookId,val) {
+	BooksAPI.update(bookId,val)
     }
 
     render() {
 	return (
                       <div className="book-shelf-changer">
-                        <select>
+                <select onChange={(e) => {
+		    this.setShelf(this.props.bookId,e.target.value)
+		}}
+	    onClick={(e) => {this.getShelf(this.props.bookId,e.target)}}
+		>
                           <option value="move" disabled>Move to...</option>
                           <option value="currentlyReading">Currently Reading</option>
                           <option value="wantToRead">Want to Read</option>

@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import * as BooksAPI from './BooksAPI'
 import SearchBar from './SearchBar'
 import Book from './Book'
-
+import Shelf from './Shelf'
 class BookFinder extends Component {
 
     state = {
@@ -23,19 +23,21 @@ class BookFinder extends Component {
 		<SearchBar term={this.state.searchTerm}
 	                   updateTerm={this.updateTerm}
 		/>
+		<Shelf shelfName="Read"/>
 		<ol className="books-grid">
 
 	        {this.state.searchResults.map(function(book) {
-		  { if (book.imageLinks) {
+		    if (book.imageLinks) { console.log(book)
 		     return (
 			     <Book
 			 key={book.id}
+			 bookId={book.id}
 			 cover={book.imageLinks.thumbnail}
 			 title={book.title}
 			 author={book.authors}
 			     />
 		    )
-		   }
+		   
 		  }
 		 })
 		}
