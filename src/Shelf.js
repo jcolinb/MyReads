@@ -13,7 +13,7 @@ class Shelf extends Component {
 	return (
 	    <div>{this.props.shelfName}
 	{
-	    this.state.library
+	    this.state.library.filter((book) => this.props.shelfName === book.shelf)
 		.map((book) => {return (<Book
 			 key={book.id}
 			 bookId={book.id}
