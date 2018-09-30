@@ -3,18 +3,22 @@ import * as BooksAPI from './BooksAPI'
 class Librarian extends Component {
 
     state = {
-	shelf: "none"
+	shelf: 'none'
     }
     
-    getShelf = (bookId,target) => {
-	BooksAPI.get(bookId).then((book) => (book.shelf) && (target.value = book.shelf))
-    }
-
     setShelf = (bookId,val) => {
-	BooksAPI.update(bookId,val).then((res) => console.log(res)).then(() => this.setState({shelf: val}))
+	let book = {id: (bookId)}
+	BooksAPI.update(book,val).then((res) => console.log(res)).then(() => this.setState({shelf: val}))
     }
 
+    componentWillMount = () => {
+	BooksAPI.get(this.props.bookId)
+	    .then((book) => book.shelf)
+	    .then((shelf) => {this.setState({shelf: shelf })})
+    }
+    
     render() {
+
 	return (
                       <div className="book-shelf-changer">
                 <select value={this.state.shelf} onChange={(e) => {
