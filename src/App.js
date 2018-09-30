@@ -3,6 +3,7 @@ import * as BooksAPI from './BooksAPI'
 import './App.css'
 import {Route} from 'react-router-dom'
 import BookFinder from './BookFinder.js'
+import BookShelves from './BookShelves'
 
 class BooksApp extends React.Component {
   state = {
@@ -16,7 +17,7 @@ class BooksApp extends React.Component {
   }
     render() {
 	return (
-		<BookFinder/>
+		<BookShelves/>
 	)
     }
 }

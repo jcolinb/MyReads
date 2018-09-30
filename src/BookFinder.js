@@ -23,7 +23,6 @@ class BookFinder extends Component {
 		<SearchBar term={this.state.searchTerm}
 	                   updateTerm={this.updateTerm}
 		/>
-		<Shelf shelfName="read"/>
 		<ol className="books-grid">
 
 	        {this.state.searchResults.map(function(book) {
