@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import Librarian from './Librarian'
 class Book extends Component {
-    render() {
+    render() { 
 	return (
 	        <li>
 		  <div className="book">
@@ -16,7 +16,7 @@ class Book extends Component {
 		      />
                     </div>
                     <div className="book-title">{this.props.title}</div>
-                    <div className="book-authors">{this.props.author}</div>
+                <div className="book-authors">{(this.props.author.map) ? this.props.author.map((author) => <p key={author}>{author}</p>):this.props.author}</div>
                   </div>
 		</li>
 	)

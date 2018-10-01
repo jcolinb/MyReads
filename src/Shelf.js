@@ -10,15 +10,14 @@ class Shelf extends Component {
 	    {
 	      this.props.library.filter((book) => this.props.shelfName === book.shelf)
 		.map((book) => 
-				(<Book
-				 key={book.id}
-				 bookId={book.id}
-				 cover={book.imageLinks.thumbnail}
-				 title={book.title}
-				 author={book.authors}
-				 updateLibrary={this.props.updateLibrary}
-				 />)
-		    )
+		  (<Book key={book.id}
+			 bookId={book.id}
+			 cover={book.imageLinks.thumbnail}
+			 title={book.title}
+			 author={book.authors}
+			 updateLibrary={this.props.updateLibrary}
+		   />)
+		)
 	    }
 	  </ol>
 	)

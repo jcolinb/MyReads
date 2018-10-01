@@ -129,8 +129,9 @@ body, .app {
 .book-title {
   margin-top: 10px;
 }
-.book-authors {
+.book-authors p {
   color: #999;
+  margin: 1px;  
 }
 
 .book-top {
