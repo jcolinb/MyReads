@@ -3,28 +3,26 @@ import * as BooksAPI from './BooksAPI'
 import Book from './Book'
 
 class Shelf extends Component {
-
-    state = {
-	library: []
-    }
     
     render() {
-	{BooksAPI.getAll().then((data) =>this.setState({library: data}))}
+
 	return (
-	    <div>{this.props.shelfName}
-	{
-	    this.state.library.filter((book) => this.props.shelfName === book.shelf)
-		.map((book) => {return (<Book
-			 key={book.id}
-			 bookId={book.id}
-			 cover={book.imageLinks.thumbnail}
-			 title={book.title}
-			 author={book.authors}
-					/>)})
-	}
-	    </div>
-    )
-    }
+	  <div>
+	    {
+	      this.props.library.filter((book) => this.props.shelfName === book.shelf)
+		.map((book) => 
+				(<Book
+				 key={book.id}
+				 bookId={book.id}
+				 cover={book.imageLinks.thumbnail}
+				 title={book.title}
+				 author={book.authors}
+				 />)
+		    )
+	    }
+	  </div>
+	)
+            }
 }
 
 export default Shelf
