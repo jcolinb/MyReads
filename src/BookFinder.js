@@ -14,7 +14,7 @@ class BookFinder extends Component {
 	(term &&
 	BooksAPI.search(term).then((data) => this.setState({searchTerm: (term),searchResults: ((data && !(data.error)) ? data : [])}))
 	) ||
-	(this.setState({searchTerm:''}))
+	(this.setState({searchTerm:'',searchResults: []}))
     }
 
     render() {
@@ -29,12 +29,11 @@ class BookFinder extends Component {
 	        {this.state.searchResults.map(function(book) {
 
 		     return (
-			     <Book
-			 key={book.id}
-			 bookId={book.id}
-			 cover={(book.imageLinks) ? book.imageLinks.thumbnail:""}
-			 title={book.title}
-			 author={(book.authors) ? book.authors:"none"}
+			     <Book key={book.id}
+			           bookId={book.id}
+			           cover={(book.imageLinks) ? book.imageLinks.thumbnail:""}
+			           title={book.title}
+			           author={(book.authors) ? book.authors:"none"}
 			     />
 		    )
 

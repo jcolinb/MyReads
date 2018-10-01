@@ -9,15 +9,18 @@ class Librarian extends Component {
     setShelf = (bookId,val) => {
 	let book = {id: (bookId)}
 	BooksAPI.update(book,val)
-	    .then((res) => console.log(res)).then(() => this.setState({shelf: val}))
 	    .then(() => this.props.updateLibrary && this.props.updateLibrary())
+	    .then(() => this.getShelf())
+
     }
 
-    componentWillMount = () => {
+    getShelf = () => {
 	BooksAPI.get(this.props.bookId)
 	    .then((book) => book.shelf)
 	    .then((shelf) => {this.setState({shelf: shelf })})
     }
+
+    componentWillMount = this.getShelf
     
     render() {
 
