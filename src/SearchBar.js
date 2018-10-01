@@ -10,6 +10,7 @@ class SearchBar extends Component {
 	        <div className="search-books-input-wrapper">
 	          <input type="text"
 	                 value={this.props.term}
+	                 placeholder="search books"
 	                 onChange={(e) =>
 	                   this.props.updateTerm(e.target.value)
 	                 }
