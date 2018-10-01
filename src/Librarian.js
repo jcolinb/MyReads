@@ -8,7 +8,9 @@ class Librarian extends Component {
     
     setShelf = (bookId,val) => {
 	let book = {id: (bookId)}
-	BooksAPI.update(book,val).then((res) => console.log(res)).then(() => this.setState({shelf: val})).then(this.props.updateLibrary)
+	BooksAPI.update(book,val)
+	    .then((res) => console.log(res)).then(() => this.setState({shelf: val}))
+	    .then(() => this.props.updateLibrary && this.props.updateLibrary())
     }
 
     componentWillMount = () => {
@@ -21,10 +23,11 @@ class Librarian extends Component {
 
 	return (
                       <div className="book-shelf-changer">
-                <select value={this.state.shelf} onChange={(e) => {
-		    this.setShelf(this.props.bookId,e.target.value)
-		}}
-		>
+                        <select value={this.state.shelf}
+	                        onChange={(e) => {
+		                  this.setShelf(this.props.bookId,e.target.value)
+		                }}
+		        >
                           <option value="move" disabled>Move to...</option>
                           <option value="currentlyReading">Currently Reading</option>
                           <option value="wantToRead">Want to Read</option>
