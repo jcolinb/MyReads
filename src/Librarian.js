@@ -8,7 +8,7 @@ class Librarian extends Component {
     
     setShelf = (bookId,val) => {
 	let book = {id: (bookId)}
-	BooksAPI.update(book,val).then((res) => console.log(res)).then(() => this.setState({shelf: val}))
+	BooksAPI.update(book,val).then((res) => console.log(res)).then(() => this.setState({shelf: val})).then(this.props.updateLibrary)
     }
 
     componentWillMount = () => {

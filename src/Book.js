@@ -11,7 +11,9 @@ class Book extends Component {
 		                    height: 193,
 				    backgroundImage: `url(${this.props.cover})`}}>
 		      </div>
-		      <Librarian bookId={this.props.bookId}/>
+		      <Librarian bookId={this.props.bookId}
+	                         updateLibrary={this.props.updateLibrary}
+		      />
                     </div>
                     <div className="book-title">{this.props.title}</div>
                     <div className="book-authors">{this.props.author}</div>

@@ -17,6 +17,7 @@ class Shelf extends Component {
 				 cover={book.imageLinks.thumbnail}
 				 title={book.title}
 				 author={book.authors}
+				 updateLibrary={this.props.updateLibrary}
 				 />)
 		    )
 	    }
