@@ -7,7 +7,7 @@ class Shelf extends Component {
     render() {
 
 	return (
-	  <div>
+	  <ol className="books-grid">
 	    {
 	      this.props.library.filter((book) => this.props.shelfName === book.shelf)
 		.map((book) => 
@@ -21,7 +21,7 @@ class Shelf extends Component {
 				 />)
 		    )
 	    }
-	  </div>
+	  </ol>
 	)
             }
 }
